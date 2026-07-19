@@ -25,3 +25,22 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val tokenManager = TokenManager(this)
+        
+        // Create ApiService once
+        val apiService = RetrofitClient.getApiService(tokenManager)
+
+        setContent {
+            if (tokenManager.isLoggedIn()) {
+                // Pass apiService to HomeScreen
+                HomeScreen(apiService = apiService)
+            } else {
+                LoginScreen()
+            }
+        }
+    }
+}
