@@ -1,4 +1,4 @@
-package com.yourpackage.tweetfrost
+package com.frostre1997.tweetfrost
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
